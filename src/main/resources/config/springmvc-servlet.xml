@@ -44,7 +44,7 @@
     </bean>
     -->
     <!--  异常处理方式1-->
-    <!--<bean id="handlerExceptionResolver"
+    <bean id="handlerExceptionResolver"
           class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="errors/error"/>
         <property name="exceptionMappings">
@@ -52,8 +52,14 @@
                 <prop key="res.sogou.com.exception.AuthorizationException">/errors/authorError</prop>
             </props>
         </property>
+        <property name="statusCodes">
+            <props>
+                <prop key="/errors/error">500</prop>
+                <prop key="/errors/error">404</prop>
+            </props>
+        </property>
     </bean>
-    -->
+
     <!-- 异常处理方式2-->
     <bean id="exceptionHandler" class="res.sogou.com.exception.MyExceptionHandler">
     </bean>

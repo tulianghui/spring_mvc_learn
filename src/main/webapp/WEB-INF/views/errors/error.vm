@@ -1,1 +1,2 @@
 <p>defaultErrorView</p>
+${ex.getMessage()}

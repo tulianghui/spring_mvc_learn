@@ -1,7 +1,12 @@
 package res.sogou.com.exception;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
+import res.sogou.com.controler.BaseControler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +27,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
 
         return  new ModelAndView("/errors/myerror", mv);
     }
+
 
 }
 
