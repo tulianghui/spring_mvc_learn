@@ -13,9 +13,9 @@
          http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!--mvc:annotation-drive 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean,是spring MVC为@Controllers分发请求所必须的-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven />
 
-    <!--处理意见注册过的bean的注解,-->
+    <!--处理已经注册过的bean的注解,-->
     <context:annotation-config/>
 
     <!-- 自动扫描控制器注解，并注册为bean, use-default-filters默认为true时会扫描包下所有注解
@@ -83,5 +83,16 @@
         <property name="suffix" value=".vm" />
         <property name="contentType"><value>text/html;charset=UTF-8</value></property>
     </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"
+          p:ignoreDefaultModelOnRedirect="true" >
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+
 
 </beans>

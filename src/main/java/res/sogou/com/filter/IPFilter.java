@@ -35,7 +35,7 @@ public class IPFilter implements Filter {
       }
       filterChain.doFilter(request, response);
       //response.resetBuffer();
-      response.getWriter().print("<p>Filter:after doFilter</p>");
+     // response.getWriter().print("<p>Filter:after doFilter</p>");
 
    }
 
